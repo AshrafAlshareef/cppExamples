@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+namespace names
+{
+  void print(std::string& name)
+  {
+    std::cout << name << " from names namespace"<<endl;
+  }
+}
+
+
+namespace messages
+{
+  void print(std::string& msg)
+  {
+    std::cout << msg << " from messages namespace"<<endl;;
+  }
+}
+
+
+int main() 
+{
+    std::string word = "Hello, World!";
+    
+    names::print(word);
+    names::print(word);
+    
+    return 0;
+}
