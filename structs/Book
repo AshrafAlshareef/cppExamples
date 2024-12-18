@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+
+struct Book {
+    string _title;
+    string _author;
+    double _price;
+    int _numberOfPages;
+    
+    Book(string title, string author, double price, int numberOfPages)
+    : _title(title), _author(author), _price(price), _numberOfPages(numberOfPages)
+    {
+      
+    }
+};
+
+std::ostream& operator<<(ostream& os, Book& book)
+{
+  return os << book._title <<", "  << book._author <<", "  << book._price <<", "  << book._numberOfPages <<endl; 
+}
+
+int main() 
+{
+    struct Book book{"Title", "Author", 25.5, 65}; // struct-keyword could be removed
+    std::cout << book;
+    return 0;
+}
