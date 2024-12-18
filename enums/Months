@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+enum Months
+{
+    Jan = 1,
+    Feb,
+    Mar,
+    Apr,
+    May,
+    Jun,
+    Jul,
+    Aug,
+    Sep,
+    Oct,
+    Nov,
+    Dec
+};
+
+
+std::string month2String(Months month)
+{
+  switch (month)
+  {
+    case Jan: return "January";
+    case Feb: return "Febraury";
+    case Mar: return "March";
+    case Apr: return "April";
+    case May: return "May";
+    case Jun: return "June";
+    case Jul: return "July";
+    case Aug: return "August";
+    case Sep: return "September";
+    case Oct: return "October";
+    case Nov: return "November";
+    case Dec: return "December";
+    default: return "";
+  }
+}
+
+
+int daysInMonth(Months month)
+{
+  switch (month)
+  {
+    case Jan: return 31;
+    case Feb: return 28;
+    case Mar: return 31;
+    case Apr: return 30;
+    case May: return 31;
+    case Jun: return 30;
+    case Jul: return 31;
+    case Aug: return 31;
+    case Sep: return 30;
+    case Oct: return 31;
+    case Nov: return 30;
+    case Dec: return 31;
+    default: return -1;
+  }
+}
+
+int main()
+{
+    Months selectedMonth;
+
+    selectedMonth = May;
+
+    cout << month2String(May) << " contain " << daysInMonth(selectedMonth) << " days" << endl;
+
+    return 0;
+}
