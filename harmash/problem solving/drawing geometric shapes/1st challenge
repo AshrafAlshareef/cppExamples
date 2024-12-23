@@ -30,22 +30,25 @@ void drawLeftAlignedIncreasingStars(int numberLines)
 
 
 /*
- * Function: drawReightAlignedIncreasingStars
+ * Function: drawLeftAlignedDecreasingStars
  * -------------------------------
- * Draws a right-angled triangle of stars in reverse order, where 
- * the first line has the maximum number of stars and each subsequent 
- * line has one less star.
+ * 
  *
+ * Draws a left-aligned triangle of stars where the number of stars 
+ * in each line corresponds to the line number. The first line has 
+ * the maximum number of stars, and each subsequent line has one less 
+ * star.
+ * 
  * numberLines: The total number of lines to draw.
  * example:-
- *     *
- *    **
- *   ***
- *  ****
  * *****
+ * ****
+ * ***
+ * **
+ * *
  * 
  */
-void drawReightAlignedIncreasingStars(int numberLines)
+void drawLeftAlignedDecreasingStars(int numberLines)
 {
     for (int line = numberLines; line >= 1; line--)
     {
@@ -59,23 +62,22 @@ void drawReightAlignedIncreasingStars(int numberLines)
 
 
 /*
- * Function: drawLeftAlignedDecreasingStars
+ * Function: drawReightAlignedIncreasingStars
  * -------------------------------------------
- * Draws a left-aligned triangle of stars where the number of stars 
- * in each line corresponds to the line number. The first line has 
- * the maximum number of stars, and each subsequent line has one less 
- * star.
+ * Draws a right-angled triangle of stars in reverse order, where 
+ * the first line has the maximum number of stars and each subsequent 
+ * line has one more star.
  *
  * numberLines: The total number of lines to draw.
  * example:-
+ *     *
+ *    **
+ *   ***
+ *  ****
  * *****
- * ****
- * ***
- * **
- * *
  * 
  */
-void drawLeftAlignedDecreasingStars(int numberLines)
+void drawReightAlignedIncreasingStars(int numberLines)
 {
     for (int line = 1; line <= numberLines; line++)
     {
@@ -162,8 +164,8 @@ int main()
 {
     int lineNumbers = 5; 
     drawLeftAlignedIncreasingStars(lineNumbers);
-    drawReightAlignedIncreasingStars(lineNumbers);
     drawLeftAlignedDecreasingStars(lineNumbers);
+    drawReightAlignedIncreasingStars(lineNumbers);
     drawRightAlignedDecreasingStars(lineNumbers);
     drawColumnStars(lineNumbers, 2 /*Columns*/);
     system("pause");
