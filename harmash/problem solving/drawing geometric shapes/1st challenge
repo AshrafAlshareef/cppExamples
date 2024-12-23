@@ -1,0 +1,171 @@
+#include <iostream>
+
+/*
+ * Function: drawLeftAlignedIncreasingStars
+ * -------------------------------
+ * Draws a right-angled triangle of stars where the number of stars 
+ * in each line corresponds to the line number. The first line has 
+ * one star, the second line has two stars, and so on.
+ *
+ * numberLines: The total number of lines to draw.
+ * example:-
+ * *
+ * **
+ * ***
+ * ****
+ * *****
+ * 
+ */
+void drawLeftAlignedIncreasingStars(int numberLines)
+{
+    for (int line = 1; line <= numberLines; line++)
+    {
+        for (int star = 0; star < line; star++)
+        {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+    }   
+}
+
+
+/*
+ * Function: drawReightAlignedIncreasingStars
+ * -------------------------------
+ * Draws a right-angled triangle of stars in reverse order, where 
+ * the first line has the maximum number of stars and each subsequent 
+ * line has one less star.
+ *
+ * numberLines: The total number of lines to draw.
+ * example:-
+ *     *
+ *    **
+ *   ***
+ *  ****
+ * *****
+ * 
+ */
+void drawReightAlignedIncreasingStars(int numberLines)
+{
+    for (int line = numberLines; line >= 1; line--)
+    {
+        for (int star = 0; star < line; star++)
+        {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+    }   
+}
+
+
+/*
+ * Function: drawLeftAlignedDecreasingStars
+ * -------------------------------------------
+ * Draws a left-aligned triangle of stars where the number of stars 
+ * in each line corresponds to the line number. The first line has 
+ * the maximum number of stars, and each subsequent line has one less 
+ * star.
+ *
+ * numberLines: The total number of lines to draw.
+ * example:-
+ * *****
+ * ****
+ * ***
+ * **
+ * *
+ * 
+ */
+void drawLeftAlignedDecreasingStars(int numberLines)
+{
+    for (int line = 1; line <= numberLines; line++)
+    {
+        for (int space = 0; space < (numberLines - line); space++)
+        {
+            std::cout << " ";
+        }
+        for (int star = 0; star < line; star++)
+        {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+    }   
+}
+
+
+
+/*
+ * Function: drawRightAlignedDecreasingStars
+ * -------------------------------------------
+ * Draws a right-aligned triangle of stars in reverse order, where 
+ * the first line has the maximum number of stars and each subsequent 
+ * line has one less star, with leading spaces to align the stars to 
+ * the right.
+ *
+ * numberLines: The total number of lines to draw.
+ * example:-
+ * *****
+ *  ****
+ *   ***
+ *    **
+ *     *
+ */
+void drawRightAlignedDecreasingStars(int numberLines)
+{
+    for (int line = numberLines; line >= 1 ; line--)
+    {
+        for (int space = 0; space < (numberLines - line); space++)
+        {
+            std::cout << " ";
+        }
+        for (int star = 0; star < line; star++)
+        {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+    }   
+}
+
+
+/*
+ * Function: drawColumnStars
+ * ---------------------------
+ * Draws a specified number of stars in each line, aligned to the 
+ * right, with the number of lines specified. Each line contains a 
+ * fixed number of stars, and leading spaces are added for alignment.
+ *
+ * numberLines: The total number of lines to draw.
+ * numberStars: The number of stars to draw in each line.
+ * example:-
+ *     **
+ *    **
+ *   **
+ *  **
+ * **
+ */
+void drawColumnStars(int numberLines, int numberStars)
+{
+    for (int line = 1; line <= numberLines; line++)
+    {
+        for (int space = 0; space < (numberLines - line); space++)
+        {
+            std::cout << " ";
+        }
+        for (int star = 0; star < numberStars; star++)
+        {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+    }
+}
+
+int main()
+{
+    int lineNumbers = 5; 
+    drawLeftAlignedIncreasingStars(lineNumbers);
+    drawReightAlignedIncreasingStars(lineNumbers);
+    drawLeftAlignedDecreasingStars(lineNumbers);
+    drawRightAlignedDecreasingStars(lineNumbers);
+    drawColumnStars(lineNumbers, 2 /*Columns*/);
+    system("pause");
+    return 0;
+}
