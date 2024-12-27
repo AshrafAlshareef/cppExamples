@@ -23,14 +23,21 @@ std::ostream& operator<<(std::ostream& os, const std::vector<std::vector<char>>&
     return os;
 }
 
-bool validateInput(int input)
+struct Position
+{
+    int _x;
+    int _y;
+};
+
+
+bool validateInput(char input)
 {
      if (!std::isdigit(input))
      {
         return false;
      }
 
-     if (input < 1 || input > 2)
+     if (input < '1' || input > '2')
      {
         return false;
      }
@@ -39,17 +46,12 @@ bool validateInput(int input)
 }
 
 
-struct Position
-{
-    int _x;
-    int _y;
-};
 
 
 Position readPosition()
 {
-    int row;
-    int column;
+    char row;
+    char column;
 
     do
     {
@@ -58,9 +60,13 @@ Position readPosition()
         std::cin >> column;
     } while (!validateInput(row)  || !validateInput(column));
     
-    return Position{row,column};
+    return Position{static_cast<int>(row) - '1', static_cast<int>(column) - '1'};
 }
 
+void changeContent(std::vector<std::vector<char>>& board, Position position, char newSign)
+{
+    board[position._y][position._x] = newSign;
+}
 
 int main()
 {
@@ -75,6 +81,9 @@ int main()
 
    Position position = readPosition();
 
+   changeContent(board, position, 'X');
+
+    std::cout << board;
 
     return 0;
 }
